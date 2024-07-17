@@ -1,0 +1,18 @@
+***********router0*********
+
+1.Create the extended access list on the router
+
+en
+conf ter
+ip access-list extended vlan30
+deny ip 180.211.20.0 0.0.0.255 192.168.1.0 0.0.0.255 (source(vlan30)->destination(vlan10))
+permit ip any any
+exit
+
+2.Configure the sub-interfaces on the router and apply the ACL
+
+interface g0/0.30
+encapsulation dot1Q 30
+ip address 180.211.20.1 255.255.255.0
+ip access-group vlan30 in
+exit

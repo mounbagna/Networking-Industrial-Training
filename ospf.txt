@@ -1,0 +1,27 @@
+-router0(routerID)
+router ospf 1
+router-id 1.1.1.1
+network 192.168.1.0 0.0.0.255 area 10
+network 193.168.1.0 0.0.0.255 area 10
+network 199.168.1.0 0.0.0.255 area 10
+
+-router2(assign loopback)
+int loopback 400
+ip address 10.10.10.10 255.255.255.255
+router ospf 1
+network 193.168.1.0 0.0.0.255 area 10
+network 194.168.1.0 0.0.0.255 area 10
+network 195.168.1.0 0.0.0.255 area 10
+network 10.10.10.10 0.0.0.0 area 10
+
+-router3
+router ospf 1
+network 195.168.1.0 0.0.0.255 area 10
+network 196.168.1.0 0.0.0.255 area 10
+network 197.168.1.0 0.0.0.255 area 10
+
+-router4
+router ospf 1
+network 197.168.1.0 0.0.0.255 area 10
+network 198.168.1.0 0.0.0.255 area 10
+network 199.168.1.0 0.0.0.255 area 10

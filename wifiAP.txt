@@ -1,0 +1,10 @@
+--------router0-----
+int g0/0
+ip address 200.20.20.1 255.255.255.0
+no shutdown
+ip dhcp pool iut
+network 200.20.20.0 255.255.255.0
+default-router 200.20.20.1
+dns-server 8.8.8.8
+exit
+ip dhcp excluded 200.20.20.1 200.20.20.19

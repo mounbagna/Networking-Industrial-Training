@@ -1,0 +1,20 @@
+
+*******configuration of hsrp******
+
+-----router up---------
+int loopback 10
+ip address 10.10.10.10 255.255.255.255
+
+
+-----router left-------
+int g0/0/1
+standby 1 ip 192.168.1.1
+standby 1 priority 100 (the router with the highest pririty)
+standby 1 preempt
+
+
+-----router right-------
+int g0/0/0
+standby 1 ip 192.168.1.1 (the router with the lowest pririty)
+standby 1 priority 80 
+standby 1 preempt
